@@ -1,8 +1,8 @@
-package org.awtgl.primitives;
+package org.awtgl.physics.primitives;
 
-import org.awtgl.rigidbody.Rigidbody;
-import org.awtgl.vectors.VMath;
-import org.awtgl.vectors.Vector2;
+import org.awtgl.physics.rigidbody.Rigidbody;
+import org.awtgl.physics.vectors.VMath;
+import org.awtgl.physics.vectors.Vector2;
 
 public class Box {
 
@@ -27,7 +27,7 @@ public class Box {
 
 
 
-    public Vector2 getMin() {
+    public Vector2 getLocalMin() {
 
         return new Vector2(this.rigidbody.getPos()).sub(this.halfSize);
 
@@ -35,7 +35,7 @@ public class Box {
 
 
 
-    public Vector2 getMax() {
+    public Vector2 getLocalMax() {
 
         return new Vector2(this.rigidbody.getPos()).add(this.halfSize);
 
@@ -45,13 +45,13 @@ public class Box {
 
     public Vector2[] getVertices() {
 
-        Vector2 min = this.getMin();
-        Vector2 max = this.getMax();
+        Vector2 min = this.getLocalMin();
+        Vector2 max = this.getLocalMax();
 
         Vector2[] vertices = {
 
-            new Vector2(min.x, min.y), new Vector2(min.x, min.y),
-            new Vector2(max.x, max.y), new Vector2(max.x, max.y)
+            new Vector2(min.x, min.y), new Vector2(min.x, max.y),
+            new Vector2(max.x, min.y), new Vector2(max.x, max.y)
 
         };
 
@@ -74,6 +74,31 @@ public class Box {
     public Rigidbody getRigidbody() {
 
         return this.rigidbody;
+
+    }
+
+
+
+    public Vector2 getHalfSize() {
+
+        return this.halfSize;
+
+    }
+
+
+
+    public void setRigidbody(Rigidbody rigidbody) {
+
+        this.rigidbody = rigidbody;
+
+    }
+
+
+
+    public void setSize(Vector2 size) {
+
+        this.size.set(size);
+        this.halfSize.set(size.x / 2, size.y / 2);
 
     }
 

@@ -1,7 +1,7 @@
-package org.awtgl.primitives;
+package org.awtgl.physics.primitives;
 
-import org.awtgl.rigidbody.Rigidbody;
-import org.awtgl.vectors.Vector2;
+import org.awtgl.physics.rigidbody.Rigidbody;
+import org.awtgl.physics.vectors.Vector2;
 
 public class Circle {
     
@@ -25,13 +25,25 @@ public class Circle {
 
     
     public float getRadius() {
+
         return radius;
+
     }
 
 
 
     public void setRadius(float radius) {
+
         this.radius = radius;
+
+    }
+
+
+
+    public void setRigidbody(Rigidbody rigidbody) {
+
+        this.rigidbody = rigidbody;
+
     }
 
 }

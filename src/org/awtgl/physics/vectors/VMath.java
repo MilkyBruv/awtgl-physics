@@ -1,4 +1,4 @@
-package org.awtgl.vectors;
+package org.awtgl.physics.vectors;
 
 public class VMath {
     
@@ -15,8 +15,7 @@ public class VMath {
 
         );
 
-        vec.x = newVec.x;
-        vec.y = newVec.y;
+        vec.set(newVec.x, newVec.y);
 
     }
 
@@ -49,6 +48,20 @@ public class VMath {
     public static boolean compare(Vector2 vec1, Vector2 vec2) {
 
         return compare((float) vec1.x, (float) vec2.x) && compare((float) vec1.x, (float) vec2.y);
+
+    }
+
+
+
+    public static float fastInvSqrt(float n) {
+
+        float nhalf = 0.5f * n;
+        int i = Float.floatToIntBits(n);
+        i = 0x5f3759df - (i >> 1);
+        n = Float.intBitsToFloat(i);
+        n *= (1.5f - nhalf * n * n);
+
+        return n;
 
     }
 

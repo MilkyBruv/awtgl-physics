@@ -1,7 +1,7 @@
-package org.awtgl.primitives;
+package org.awtgl.physics.primitives;
 
-import org.awtgl.rigidbody.Rigidbody;
-import org.awtgl.vectors.Vector2;
+import org.awtgl.physics.rigidbody.Rigidbody;
+import org.awtgl.physics.vectors.Vector2;
 
 public class AABB {
 
@@ -37,6 +37,23 @@ public class AABB {
     public Vector2 getMax() {
 
         return new Vector2(this.rigidbody.getPos()).add(this.halfSize);
+
+    }
+
+
+
+    public void setRigidbody(Rigidbody rigidbody) {
+
+        this.rigidbody = rigidbody;
+
+    }
+
+
+
+    public void setSize(Vector2 size) {
+
+        this.size.set(size);
+        this.halfSize.set(size.x / 2, size.y / 2);
 
     }
 

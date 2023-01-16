@@ -1,6 +1,6 @@
-package org.awtgl.primitives;
+package org.awtgl.physics.primitives;
 
-import org.awtgl.vectors.Vector2;
+import org.awtgl.physics.vectors.Vector2;
 
 public class Ray {
     

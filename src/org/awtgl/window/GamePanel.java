@@ -81,7 +81,7 @@ public class GamePanel extends JPanel implements Runnable {
             if (delta >= 1) {
 
                 // UPDATE
-                this.update();
+                this.update((float) delta);
 
                 // DRAW
                 //? Uses built-in method to call the other overridden methods
@@ -97,7 +97,7 @@ public class GamePanel extends JPanel implements Runnable {
 
 
 
-    public void update() {
+    public void update(float dt) {
 
         if (this.mainWindow.mode == Window.SCALE_INNER_DISPLAY)
         {
@@ -139,7 +139,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         }
 
-        this.gameUpdater.update();
+        this.gameUpdater.update(dt);
 
     }
 

@@ -1,4 +1,4 @@
-package org.awtgl.vectors;
+package org.awtgl.physics.vectors;
 
 public class Vector2 {
     
@@ -31,10 +31,22 @@ public class Vector2 {
 
 
 
-    public void zero() {
+    public float get(int i) {
+
+        float[] xy = {this.x, this.y};
+
+        return xy[i];
+
+    }
+
+
+
+    public Vector2 zero() {
 
         this.x = 0;
         this.y = 0;
+
+        return this;
 
     }
 
@@ -81,6 +93,18 @@ public class Vector2 {
         }
 
         return dest;
+
+    }
+
+
+
+    public Vector2 normalize() {
+
+        float invLength = VMath.fastInvSqrt(this.x * this.x + this.y * this.y);
+        this.x = this.x * invLength;
+        this.y = this.y * invLength;
+
+        return this;
 
     }
 

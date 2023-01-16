@@ -1,8 +1,6 @@
-package org.awtgl.primitives;
+package org.awtgl.physics.primitives;
 
-import java.security.cert.CertPathValidator;
-
-import org.awtgl.vectors.Vector2;
+import org.awtgl.physics.vectors.Vector2;
 
 public class RaycastResult {
     
@@ -38,6 +36,9 @@ public class RaycastResult {
         if (result != null) {
 
             result.point.zero();
+            result.normal.set(0, 0);
+            result.t = -1;
+            result.hit = false;
 
         }
 

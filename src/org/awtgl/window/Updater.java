@@ -15,7 +15,7 @@ public class Updater {
 
 
 
-    public void update() { }
+    public void update(float dt) { }
 
 
 

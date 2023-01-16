@@ -1,4 +1,4 @@
-package org.awtgl.vectors;
+package org.awtgl.physics.vectors;
 
 public class Line {
     
